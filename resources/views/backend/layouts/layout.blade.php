@@ -51,22 +51,7 @@
                     </a>
                 </li>
                 
-                <li class="">
-                    <a href="">
-                        <span class="icon">
-                            <i class="fa-solid fa-percent fa-lg"></i>
-                        </span>
-                        <span class="title">Promo(Inprogress)</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="">
-                        <span class="icon">
-                            <i class="fa-solid fa-baby-carriage fa-lg"></i>
-                        </span>
-                        <span class="title">Expense(Inprogress)</span>
-                    </a>
-                </li>
+                
                 <li class="">
                     <a href="">
                         <span class="icon">
@@ -89,6 +74,22 @@
                             <i class="fa-solid fa-layer-group fa-lg"></i>
                         </span>
                         <span class="title">Service(Inprogress)</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="">
+                        <span class="icon">
+                            <i class="fa-solid fa-percent fa-lg"></i>
+                        </span>
+                        <span class="title">Promo(Inprogress)</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="">
+                        <span class="icon">
+                            <i class="fa-solid fa-baby-carriage fa-lg"></i>
+                        </span>
+                        <span class="title">Expense(Inprogress)</span>
                     </a>
                 </li>
                 <li class="">
