@@ -27,7 +27,7 @@
         <ul>
             <div class="custom-scrollbar-sidebar py-2">
                 <li class="mt-3">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="">
                         <span class="icon">
                             <i class="fa-solid fa-house fa-lg"></i>
                         </span>
@@ -35,19 +35,36 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="{{url('/admin/package')}}">
+                    <a href="">
                         <span class="icon">
-                            <i class="fa-regular fa-folder-open fa-lg"></i>
+                            <i class="fa-solid fa-layer-group fa-lg"></i>
                         </span>
-                        <span class="title">Package</span>
+                        <span class="title">Product</span>
                     </a>
                 </li>
                 <li class="">
-                    <a href="{{url('/admin/booking')}}">
+                    <a href="">
                         <span class="icon">
                             <i class="fa-solid fa-cart-arrow-down fa-lg"></i>
                         </span>
-                        <span class="title">Booking</span>
+                        <span class="title">Sales</span>
+                    </a>
+                </li>
+                
+                <li class="">
+                    <a href="">
+                        <span class="icon">
+                            <i class="fa-solid fa-percent fa-lg"></i>
+                        </span>
+                        <span class="title">Promo(Inprogress)</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="">
+                        <span class="icon">
+                            <i class="fa-solid fa-baby-carriage fa-lg"></i>
+                        </span>
+                        <span class="title">Expense(Inprogress)</span>
                     </a>
                 </li>
                 <li class="">
@@ -55,31 +72,7 @@
                         <span class="icon">
                             <i class="fa-regular fa-credit-card fa-lg"></i>
                         </span>
-                        <span class="title">Payment</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{{url('/admin/promo')}}">
-                        <span class="icon">
-                            <i class="fa-solid fa-percent fa-lg"></i>
-                        </span>
-                        <span class="title">Promo</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{{url('/admin/bundle')}}">
-                        <span class="icon">
-                            <i class="fa-solid fa-layer-group fa-lg"></i>
-                        </span>
-                        <span class="title">Bundle</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{{url('/admin/expense')}}">
-                        <span class="icon">
-                            <i class="fa-solid fa-baby-carriage fa-lg"></i>
-                        </span>
-                        <span class="title">Expense</span>
+                        <span class="title">Colloction</span>
                     </a>
                 </li>
                 <li class="">
@@ -93,45 +86,13 @@
                 <li class="">
                     <a href="#">
                         <span class="icon">
-                            <i class="fa-solid fa-house-circle-check fa-lg"></i>
-                        </span>
-                        <span class="title">Home</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <span class="icon">
                             <i class="fa-solid fa-layer-group fa-lg"></i>
                         </span>
-                        <span class="title">Service</span>
+                        <span class="title">Service(Inprogress)</span>
                     </a>
                 </li>
                 <li class="">
-                    <a href="#">
-                        <span class="icon">
-                            <i class="fa-solid fa-hand-holding-medical fa-lg"></i>
-                        </span>
-                        <span class="title">Facilities</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <span class="icon">
-                            <i class="fa-solid fa-building-columns fa-lg"></i>
-                        </span>
-                        <span class="title">About Us</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{{url('/contact/index')}}">
-                        <span class="icon">
-                            <i class="fa-solid fa-address-card fa-lg"></i>
-                        </span>
-                        <span class="title">Contact Us</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="{{url('/admin/user')}}">
+                    <a href="">
                         <span class="icon">
                             <i class="fa-solid fa-users fa-lg"></i>
                         </span>
