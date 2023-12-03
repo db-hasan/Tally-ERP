@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="shortcut icon" href="{{asset('images/favicon.ico') }} " type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{asset('backend/css/style.css') }} ">
     <link rel="stylesheet" href="{{asset('bootstrap/bootstrap.min.css') }} ">
@@ -27,7 +27,7 @@
         <ul>
             <div class="custom-scrollbar-sidebar py-2">
                 <li class="mt-3">
-                    <a href="">
+                    <a href="{{ route('dashboard') }}">
                         <span class="icon">
                             <i class="fa-solid fa-house fa-lg"></i>
                         </span>
@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="">
+                    <a href="{{ route('sales.index') }}">
                         <span class="icon">
                             <i class="fa-solid fa-cart-arrow-down fa-lg"></i>
                         </span>
@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="#">
+                    <a href="{{ route('dashboard') }}">
                         <span class="icon">
                             <i class="fa-solid fa-layer-group fa-lg"></i>
                         </span>
@@ -77,7 +77,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="">
+                    <a href="{{ route('dashboard') }}">
                         <span class="icon">
                             <i class="fa-solid fa-percent fa-lg"></i>
                         </span>
@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="">
+                    <a href="{{ route('dashboard') }}">
                         <span class="icon">
                             <i class="fa-solid fa-baby-carriage fa-lg"></i>
                         </span>
@@ -93,7 +93,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="">
+                    <a href="{{ route('dashboard') }}">
                         <span class="icon">
                             <i class="fa-solid fa-users fa-lg"></i>
                         </span>
@@ -101,7 +101,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="#">
+                    <a href="{{ route('dashboard') }}">
                         <span class="icon">
                             <i class="fa-solid fa-right-from-bracket fa-lg"></i>
                         </span>
