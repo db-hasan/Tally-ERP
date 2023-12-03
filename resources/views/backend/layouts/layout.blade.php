@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="">
+                    <a href="{{ route('product.index') }}">
                         <span class="icon">
                             <i class="fa-solid fa-layer-group fa-lg"></i>
                         </span>
@@ -53,7 +53,7 @@
                 
                 
                 <li class="">
-                    <a href="">
+                    <a href="{{ route('product.index') }}">
                         <span class="icon">
                             <i class="fa-regular fa-credit-card fa-lg"></i>
                         </span>
@@ -259,6 +259,7 @@
                             onclick="event.preventDefault();
                             this.closest('form').submit();">
                             <i class="fas fa-sign-out-alt"></i> {{ __('Log Out') }}</a>
+                            </form>
                         </li>
                         
                     </ul>
