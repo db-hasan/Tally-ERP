@@ -18,19 +18,20 @@
       
       <div class="row bg-light pt-3 pb-5">
         <div class="col-3">
-            <label for="customar_name" class="form-label">Customer Name<span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="customar_name">
-            @error('customar_name')
-                <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
-        <div class="col-3">
             <label for="customar_phone" class="form-label">Customar Phone<span class="text-danger">*</span></label>
             <input type="text" class="form-control" name="customar_phone">
             @error('customar_phone')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
+        <div class="col-3">
+            <label for="customar_name" class="form-label">Customer Name<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="customar_name">
+            @error('customar_name')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+        
         <div class="col-6">
             <label for="customar_address" class="form-label">Customar Address<span class="text-danger">*</span></label>
             <input type="text" class="form-control" name="customar_address">
@@ -56,9 +57,9 @@
                       @enderror
                   </div>
 
-                  <div class="col-2">
-                      <h5 class="pt-1" id="price">100</h5>
-                  </div>
+                    <div class="col-2">
+                         <h5 class="pt-1" id="price" price="200">200</h5>
+                    </div>
 
                   <div class="col-2">
                       <input type="number" class="form-control" placeholder="Quantity" name="order_quantity[]" id="qty" required>
@@ -78,22 +79,21 @@
               </div>
           </div>
       </div>
+      
 
-      <div class="col-6 text-end">
+      <div class="col-8 text-end">
         <div class="p-1">Grand Total : </div>
       </div>
+
       <div class="col-2">
-        <div class="p-1">00</div>
-      </div>
-      <div class="col-2">
-        <h5 class="pt-1" id="grandTotal">00</h5>
+        <h5 class="pt-1" id="grandTotal"  total="0">00</h5> 
       </div>
 
       <div class="col-8 text-end">
         <div class="p-1">Payment : </div>
       </div>
       <div class="col-2 text-end">
-        <input type="text" class="form-control" placeholder="Amount" name="payment">
+        <input type="text" class="form-control" placeholder="Amount" name="payment" required>
         @error('payment')
             <span class="text-danger">{{ $message }}</span>
         @enderror
@@ -109,20 +109,57 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    $(document).ready(function () {
-        // Event delegation for add-row and remove-row buttons
-        $(".container").on("click", ".add-row", function () {
-            var newRow = $(".item").first().clone();
-            newRow.find("input").val(""); // Clear the input values
-            $(this).closest(".item").after(newRow);
-        });
+   $(document).ready(function () {
 
-        $(".container").on("click", ".remove-row", function () {
-            if ($(".item").length > 1) {
-                $(this).closest(".item").remove();
-            }
-        });
+    $(".container").on("click", ".add-row", function () {
+        var newRow = $(".item").first().clone().find("input").val("").end().insertAfter($(this).closest(".item"));
+        newRow.find("#total").text("0");
+        attachQuantityChangeListener(newRow);
     });
+
+    $(".container").on("click", ".remove-row", function () {
+        if ($(".item").length > 1) {
+            $(this).closest(".item").remove();
+        }
+    });
+
+    attachQuantityChangeListener($(".item"));
+
+    $(".container").on("change", ".item #qty", function () {
+        updateTotals();
+    });
+
+});
+
+function attachQuantityChangeListener(element) {
+    element.find("#qty").change(function () {
+        var id = $(this).closest(".item").find('#price').attr('price');
+        var items = $(this).val();
+        if (isNaN(items) || items < 0) {
+            alert('cant be minus')
+            $(this).val(0); // Set quantity to 0 if negative or NaN
+            items = 0;
+        }
+        var total = id * items;
+        $(this).closest(".item").find('#total').text(total);
+        updateTotals();
+    });
+}
+
+function updateTotals() {
+    var grandTotal = 0;
+
+    $(".item").each(function () {
+        var price = parseFloat($(this).find('#price').attr('price'));
+        var quantity = parseFloat($(this).find("#qty").val());
+        var itemTotal = price * quantity;
+        if (!isNaN(itemTotal)) {
+            grandTotal += itemTotal;
+        }
+    });
+
+    $('#grandTotal').text(grandTotal);
+}
 </script>
 
 
