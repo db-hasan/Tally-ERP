@@ -46,17 +46,23 @@
           <div class="pt-3">
               <div class="row item mb-3">
                   <div class="col-4">
-                      <select class="form-select" aria-label="Default select example" name="product_name[]" required>
+                      {{-- <select class="form-select" aria-label="Default select example" name="product_name[]" required>
                           <option value="" selected>Select Product</option>
                           @foreach ($indexProduct as $itemProduct)
                           <option value="{{$itemProduct->product_id}}">{{$itemProduct->product_name}}</option>
                           @endforeach
-                      </select>
+                      </select> --}}
+
+                      <select class="form-select" aria-label="Default select example" name="product_name[]" id="productSelect" required>
+                        <option value="" selected>Select Product</option>
+                        @foreach ($indexProduct as $itemProduct)
+                            <option value="{{$itemProduct->product_id}}" data-price="{{$itemProduct->selling_price}}">{{$itemProduct->product_name}}</option>
+                        @endforeach
+                    </select>
                       @error('product_name')
                       <span class="text-danger">{{ $message }}</span>
                       @enderror
                   </div>
-
                     <div class="col-2">
                          <h5 class="pt-1" id="price" price="200">200</h5>
                     </div>
@@ -106,6 +112,7 @@
 </div>
 
 
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
@@ -136,7 +143,7 @@ function attachQuantityChangeListener(element) {
         var id = $(this).closest(".item").find('#price').attr('price');
         var items = $(this).val();
         if (isNaN(items) || items < 0) {
-            alert('cant be minus')
+            alert("Can't input minus (-)")
             $(this).val(0); // Set quantity to 0 if negative or NaN
             items = 0;
         }
