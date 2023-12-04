@@ -18,9 +18,9 @@
       
       <div class="row bg-light pt-3 pb-5">
         <div class="col-3">
-            <label for="customer_name" class="form-label">Customer Name<span class="text-danger">*</span></label>
-            <input type="text" class="form-control" name="customer_name">
-            @error('customer_name')
+            <label for="customar_name" class="form-label">Customer Name<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" name="customar_name">
+            @error('customar_name')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
@@ -45,13 +45,13 @@
           <div class="pt-3">
               <div class="row item mb-3">
                   <div class="col-4">
-                      <select class="form-select" aria-label="Default select example" name="product_name[]">
+                      <select class="form-select" aria-label="Default select example" name="product_name[]" required>
                           <option value="" selected>Select Product</option>
                           @foreach ($indexProduct as $itemProduct)
                           <option value="{{$itemProduct->product_id}}">{{$itemProduct->product_name}}</option>
                           @endforeach
                       </select>
-                      @error('product')
+                      @error('product_name')
                       <span class="text-danger">{{ $message }}</span>
                       @enderror
                   </div>
@@ -61,8 +61,8 @@
                   </div>
 
                   <div class="col-2">
-                      <input type="number" class="form-control" placeholder="Quantity" name="product_quantity[]" id="qty">
-                      @error('product_quantity')
+                      <input type="number" class="form-control" placeholder="Quantity" name="order_quantity[]" id="qty" required>
+                      @error('order_quantity')
                         <span class="text-danger">{{ $message }}</span>
                       @enderror
                   </div>
@@ -79,8 +79,11 @@
           </div>
       </div>
 
-      <div class="col-8 text-end">
+      <div class="col-6 text-end">
         <div class="p-1">Grand Total : </div>
+      </div>
+      <div class="col-2">
+        <div class="p-1">00</div>
       </div>
       <div class="col-2">
         <h5 class="pt-1" id="grandTotal">00</h5>
@@ -90,14 +93,16 @@
         <div class="p-1">Payment : </div>
       </div>
       <div class="col-2 text-end">
-        <input type="text" class="form-control" placeholder="Amount">
+        <input type="text" class="form-control" placeholder="Amount" name="payment">
+        @error('payment')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
       </div>
 
       <div class="col-2 text-end">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </form>
-
 </div>
 
 

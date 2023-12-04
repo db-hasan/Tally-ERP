@@ -20,25 +20,27 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Number</th>
-                    <th>Amount</th>
+                    <th>Sales</th>
+                    <th>Payment</th>
                     <th>Date</th>
                     <th class="text-end">Action</th>
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($indexpurchaes as $itempurchaes)
+                @foreach ($indexSales as $item)
                 <tr>
-                    <td>{{$itempurchaes->purchaes_id}}</td> 
-                    <td>{{$itempurchaes->supplier_name}}</td> 
-                    <td>{{$itempurchaes->supplier_phone}}</td> 
-                    <td>{{$itempurchaes->supplier_email}}</td> 
-                    <td>{{ date('d M Y', $itempurchaes->created_at->timestamp) }}</td> 
+                    <td>{{$item->sales_id}}</td> 
+                    <td>{{$item->customar_name}}</td> 
+                    <td>{{$item->customar_phone}}</td> 
+                    <td>0000</td> 
+                    <td>{{$item->payment}}</td> 
+                    <td>{{ date('d M Y', $item->created_at->timestamp) }}</td> 
                     <td class="icons">
-                        <a href="{{ route('purchaes.show', $itempurchaes->purchaes_id) }}" type="button"  class="btn view"><i class="fa-solid fa-eye"></i></a>
-                        <a href="{{ route('purchaes.invice', $itempurchaes->purchaes_id) }}" type="button"  class="btn"><i class="fa-solid fa-file-invoice" style="color: #e4740c;"></i></a>
-                        <a href="{{ route('purchaes.destroy', $itempurchaes->purchaes_id) }}" type="button"  class="btn delete" onclick="return confirm('Are you sure dalete')"><i class="fa-solid fa-trash"></i></a>
+                        <a href="{{ route('sales.show', $item->customar_id) }}" type="button"  class="btn view"><i class="fa-solid fa-eye"></i></a>
+                        <a href="{{ route('sales.invice', $item->customar_id) }}" type="button"  class="btn"><i class="fa-solid fa-file-invoice" style="color: #e4740c;"></i></a>
+                        <a href="{{ route('sales.destroy', $item->customar_id) }}" type="button"  class="btn delete" onclick="return confirm('Are you sure dalete')"><i class="fa-solid fa-trash"></i></a>
                 </tr>
-                @endforeach --}}
+                @endforeach
             </tbody>
         </table>
     </div>

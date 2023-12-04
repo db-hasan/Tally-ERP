@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('customar_name',50)->nullable();
             $table->string('customar_phone',50)->nullable();
             $table->string('customar_email',50)->nullable();
-            $table->string('customar_address',50)->nullable();
             $table->integer('customar_status')->default(1);
             $table->timestamps();
         });

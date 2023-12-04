@@ -4,8 +4,10 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Sales;
+use App\Models\Customar;
 use App\Models\Product;
+use App\Models\Sales;
+use App\Models\S_order;
 use App\Models\Status;
 use Session;
 use DB;
@@ -13,10 +15,9 @@ use DB;
 class SalesController extends Controller
 {
     public function index() {
-        $indexSales = Sales::all();
+        $indexSales = Sales::join('customars', 'sales.sales_id', '=', 'customars.customar_id')->get();
         return view('backend/sales/index', compact('indexSales'));
     }
-    
 
     public function create(){
         $indexData['indexProduct']= Product::all();
@@ -24,12 +25,17 @@ class SalesController extends Controller
     }
     public function store(Request $request){    
         $rules = [
-            'suppliers_name' => 'required|max:50',
+            'customar_name' => 'required|max:50',
+            'customar_phone' => 'required|max:50',
+            'customar_address' => 'required|max:50',
+            'product_name' => 'required|max:50',
         ];
         
         $v_msg = [
-            'suppliers_name.required'=> 'Please enter the supplier name.',
-            // Add more messages for other validation rules if needed.
+            'customar_name.required'=> 'Enter Customar name.',
+            'customar_phone.required'=> 'Enter Customar Phone.',
+            'customar_address.required'=> 'Enter Customar Address.',
+            'product_name.required'=> 'Select proudect name.',
         ];
         
         $this->validate($request, $rules, $v_msg);
@@ -37,21 +43,26 @@ class SalesController extends Controller
         try { 
             DB::beginTransaction();
 
-            $purchase = new sales();
-            $purchase->suppliers_id = $request->suppliers_name;
-            $purchase->save();
+            $customar = new Customar();
+            $customar->customar_name = $request->customar_name;
+            $customar->customar_phone = $request->customar_phone;
+            $customar->customar_address = $request->customar_address;
+            $customar->save();
 
-            $types = $request->buying_price;
+            $sales = new Sales();
+            $sales->customar_id = $customar->customar_id;
+            $sales->payment = $request->payment;
+            $sales->save();
+
+            $types = $request->product_name;
 
             foreach ($types as $index => $type) {
-                $pOrder = new P_order();
-                $pOrder->sales_id = $purchase->sales_id;
-                $pOrder->suppliers_id = $purchase->suppliers_id;
-                $pOrder->p_buying_price = $request->buying_price[$index];
-                $pOrder->product_id = $request->product_name[$index];
-                $pOrder->p_selling_price = $request->selling_price[$index];
-                $pOrder->p_product_quantity = $request->product_quantity[$index];
-                $pOrder->save();
+                $sOrder = new S_order();
+                $sOrder->sales_id = $sales->sales_id;
+                $sOrder->customar_id = $customar->customar_id;
+                $sOrder->product_id = $request->product_name[$index];
+                $sOrder->order_quantity = $request->order_quantity[$index];
+                $sOrder->save();
             }
 
             DB::commit();

@@ -120,11 +120,22 @@ class ProductController extends Controller
     }
 
     public function destroy($product_id=null){
-        $destroyData = Product::find($product_id);
-        $destroyData->delete();
-        Session::flash('msg','Data delete successfully');
-        return redirect()->route('product.index');
-    }
+            $destroyData = Product::find($product_id);
+
+            // Delete associated image file
+            if ($destroyData->product_img) {
+                $imagePath = public_path('images/') . $destroyData->product_img; // Path to the image file
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); // Remove the image file from the directory
+                }
+            }
+
+            // Delete the product
+            $destroyData->delete();
+
+            Session::flash('msg','Data deleted successfully');
+            return redirect()->route('product.index');
+        }
 }
 
 
