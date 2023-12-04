@@ -9,22 +9,21 @@
                     <div class="d-flex justify-content-between">
                         <h4>All Data</h4>
                         <div class="text-end">
-                            <a href="{{ route('purchaes.index') }}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i> View Data</a>
+                            <a href="{{ route('sales.index') }}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i> View Data</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div class="text">
-                            <div class="">Purchaes ID: #{{$showData->purchaes_id}}</div>
-                            <div class="">{{$showData->created_at}}</div>
+                            <div class="">Sales ID: #{{$showData->sales_id}}</div>
+                            <div class="">{{ date('d M Y', $showData->created_at->timestamp) }}</div>
                             
                         </div>
                         <div class="text">
-                            <div class="">{{$showData->supplier_name}}</div>
-                            <div class="">{{$showData->supplier_phone}}</div>
-                            <div class="">{{$showData->supplier_email}}</div>
-                            <div class="">{{$showData->supplier_address}}</div>
+                            <div class="">{{$showData->customar_name}}</div>
+                            <div class="">{{$showData->customar_phone}}</div>
+                            <div class="">{{$showData->customar_address}}</div>
                         </div>
                     </div>
                     <hr>
@@ -35,8 +34,7 @@
                                 <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Product</th>
-                                <th scope="col">Buying Price</th>
-                                <th scope="col">Selling Price</th>
+                                <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
                                 </tr>
                             </thead>
@@ -45,21 +43,16 @@
                                 <tr>
                                     <th scope="row">{{$loop->index+1}}</th>
                                     <td>{{$order->product_name}}</td>
-                                    <td>{{$order->p_buying_price}}</td>
-                                    <td>{{$order->p_selling_price}}</td>
-                                    <td>{{$order->p_product_quantity}}</td>
+                                    <td>{{$order->selling_price}}</td>
+                                    <td>{{$order->order_quantity}}</td>
                                 </tr>
-                                <tr>
                             </tbody>
                             @endforeach
                         </table>
-                    
-                    
-                    
                 </div>
                 <div class="card-footer">
                     <div class="text-end">
-                        <a href="{{ route('purchaes.index') }}" class="btn btn-sm btn-dark">Close</a>
+                        <a href="{{ route('sales.index') }}" class="btn btn-sm btn-dark">Close</a>
                     </div>
                 </div>
             </div>

@@ -76,20 +76,32 @@ class SalesController extends Controller
         }
     }
 
-    // public function show($purchase_id){
-    //     // Fetch data from Purchases table along with related status and supplier
-    //     $showData = sales::join('statuses', 'sales.sales_status', '=', 'statuses.id')
-    //                         ->join('suppliers', 'sales.suppliers_id', '=', 'suppliers.supplier_id')
-    //                         ->where('sales.sales_id', $purchase_id)
-    //                         ->first();
+    public function show($sales_id){
+        // Fetch data from Purchases table along with related status and supplier
+        $showData = sales::join('customars', 'sales.customar_id', '=', 'customars.customar_id')
+                            ->where('sales.sales_id', $sales_id)
+                            ->first();
 
-    //     // Fetch associated products for the given purchase
-    //     $indexOrder = P_order::join('products', 'p_orders.product_id', '=', 'products.product_id')
-    //                         ->where('p_orders.sales_id', $purchase_id)
-    //                         ->get();
+        // Fetch associated products for the given purchase
+        $indexOrder = S_order::join('products', 'S_orders.product_id', '=', 'products.product_id')
+                            ->where('S_orders.sales_id', $sales_id)
+                            ->get();
 
-    //     return view('backend/sales/show', compact('showData', 'indexOrder'));
-    // }
+        return view('backend/sales/show', compact('showData', 'indexOrder'));
+    }
+    public function invice($sales_id){
+        // Fetch data from Purchases table along with related status and supplier
+        $showData = sales::join('customars', 'sales.customar_id', '=', 'customars.customar_id')
+                            ->where('sales.sales_id', $sales_id)
+                            ->first();
+
+        // Fetch associated products for the given purchase
+        $indexOrder = S_order::join('products', 'S_orders.product_id', '=', 'products.product_id')
+                            ->where('S_orders.sales_id', $sales_id)
+                            ->get();
+
+        return view('backend/sales/invoice', compact('showData', 'indexOrder'));
+    }
 
     // public function invice($purchase_id){
     //     // Fetch data from Purchases table along with related status and supplier

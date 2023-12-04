@@ -5,7 +5,7 @@
 @section('content')
 <div class="px-5">
     <div class="text-end">
-        <a href="{{ route('purchaes.index') }}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i> View Data</a>
+        <a href="{{ route('sales.index') }}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i> View Data</a>
 
         <a href="#" class="btn btn-sm btn-dark" id="printBtn" onclick="printInvoice()">
             <i class="fa-solid fa-file-invoice" style="color: #fff;"></i> Print Invoice
@@ -21,16 +21,15 @@
                 <div class="">Behar hat, Shibgonj-Bogura</div>
             </div>
             <div class="text-end">
-                <div class="">{{$showData->supplier_name}}</div>
-                <div class="">{{$showData->supplier_phone}}</div>
-                <div class="">{{$showData->supplier_email}}</div>
-                <div class="">{{$showData->supplier_address}}</div>
+                <div class="">{{$showData->customar_name}}</div>
+                <div class="">{{$showData->customar_phone}}</div>
+                <div class="">{{$showData->customar_address}}</div>
             </div>
         </div>
         <hr>
         <div class="">
-            <div class="">Purchaes ID: #{{$showData->purchaes_id}}</div>
-            <div class="">{{$showData->created_at}}</div>
+            <div class="">Sales ID: #{{$showData->sales_id}}</div>
+            <div class="">{{ date('d M Y', $showData->created_at->timestamp) }}</div>
         </div>
         <hr>
         <!-- Display other product information as needed -->
@@ -53,15 +52,15 @@
                 
                 @foreach ($indexOrder as $order)
                 <?php
-                    $quantity=($order->p_product_quantity);
+                    $quantity=($order->order_quantity);
                     $totalQuantity += $quantity; // Increment the total quantity
-                    $total=($order->p_buying_price * $order->p_product_quantity);
+                    $total=($order->selling_price * $order->order_quantity);
                     $totalPrice += $total; // Increment the total quantity
                 ?>
                 <tr>
                     <th scope="row">{{$loop->index+1}}</th>
                     <td>{{$order->product_name}}</td>
-                    <td>{{$order->p_buying_price}}</td>
+                    <td>{{$order->selling_price}}</td>
                     <td>{{$quantity}}</td>
                     <td>{{$total}}</td>
                 </tr>
