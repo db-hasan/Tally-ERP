@@ -18,6 +18,7 @@
             width: 0;
             transition: width 0.3s;
         }
+
     </style>
 </head>
 
@@ -50,8 +51,6 @@
                         <span class="title">Sales</span>
                     </a>
                 </li>
-                
-                
                 <li class="">
                     <a href="{{ route('product.index') }}">
                         <span class="icon">
@@ -61,11 +60,35 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="#">
+                    <a href="{{ route('report.balance') }}">
                         <span class="icon">
                             <i class="fa-solid fa-chart-column fa-lg"></i>
                         </span>
-                        <span class="title">Report</span>
+                        <span class="title">Customer Balance</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{ route('report.stock') }}">
+                        <span class="icon">
+                            <i class="fa-solid fa-chart-column fa-lg"></i>
+                        </span>
+                        <span class="title">Stock Report</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{ route('report.sales') }}">
+                        <span class="icon">
+                            <i class="fa-solid fa-chart-column fa-lg"></i>
+                        </span>
+                        <span class="title">Sales Report</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{ route('report.collection') }}">
+                        <span class="icon">
+                            <i class="fa-solid fa-chart-column fa-lg"></i>
+                        </span>
+                        <span class="title">Collection Report</span>
                     </a>
                 </li>
                 <li class="">

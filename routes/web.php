@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SalesController;
 use App\Http\Controllers\backend\CustomerController;
 use App\Http\Controllers\backend\ColloctionController;
+use App\Http\Controllers\backend\ReportController;
 use Illuminate\Support\Facades\Route;
 
 // frontend route
@@ -46,6 +47,13 @@ Route::middleware('auth')->group(function () {
     Route::get('sales/show/{sales_id}',[salesController::class,'show'])->name('sales.show');
     Route::get('sales/invice/{sales_id}',[salesController::class,'invice'])->name('sales.invice');
     Route::get('sales/destroy/{sales_id}',[salesController::class,'destroy'])->name('sales.destroy');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('report/balance',[ReportController::class,'balance'])->name('report.balance');
+    Route::get('report/stock',[ReportController::class,'stock'])->name('report.stock');
+    Route::get('report/sales',[ReportController::class,'sales'])->name('report.sales');
+    Route::get('report/collection',[ReportController::class,'collection'])->name('report.collection');
 });
 
 
