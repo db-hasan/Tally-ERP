@@ -6,7 +6,7 @@
 <div class="">
     <div class="text-end">
         <a href="" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i> New Data </a>
-    </div>  
+    </div>
     <hr>
     <div class="row">
         <h3>Collection Report</h3>
@@ -55,7 +55,6 @@
             </div>
         </div>
     </div>
-  
 </div>
 
 <script src="{{asset('backend/js/jquery-3.7.1.min.js') }} "></script>
