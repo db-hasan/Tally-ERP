@@ -52,7 +52,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="{{ route('product.index') }}">
+                    <a href="{{ route('collection.index') }}">
                         <span class="icon">
                             <i class="fa-regular fa-credit-card fa-lg"></i>
                         </span>

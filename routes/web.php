@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SalesController;
 use App\Http\Controllers\backend\CustomerController;
-use App\Http\Controllers\backend\ColloctionController;
+use App\Http\Controllers\backend\CollectionController;
 use App\Http\Controllers\backend\ReportController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +47,15 @@ Route::middleware('auth')->group(function () {
     Route::get('sales/show/{sales_id}',[salesController::class,'show'])->name('sales.show');
     Route::get('sales/invice/{sales_id}',[salesController::class,'invice'])->name('sales.invice');
     Route::get('sales/destroy/{sales_id}',[salesController::class,'destroy'])->name('sales.destroy');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('collection/index',[CollectionController::class,'index'])->name('collection.index');
+    Route::get('collection/insert',[CollectionController::class,'create'])->name('collection.create');
+    Route::post('collection/insert',[CollectionController::class,'store'])->name('collection.store');
+    Route::get('collection/show/{collection_id}',[CollectionController::class,'show'])->name('collection.show');
+    Route::get('collection/invice/{collection_id}',[CollectionController::class,'invice'])->name('collection.invice');
+    Route::get('collection/destroy/{collection_id}',[CollectionController::class,'destroy'])->name('collection.destroy');
 });
 
 Route::middleware('auth')->group(function () {
