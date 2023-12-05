@@ -37,14 +37,14 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Product</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total</th>
+                    <th scope="col">Opening</th>
+                    <th scope="col">Sales</th>
+                    <th scope="col">Collection</th>
+                    <th scope="col">Balance</th>
                 </tr>
             </thead>
             
-            <tbody>
+            {{-- <tbody>
                 <?php
                     $totalQuantity = 0;
                     $totalPrice = 0;
@@ -70,7 +70,7 @@
                     <th class="text-start">{{$totalQuantity}}</th>
                     <th class="text-end">{{$totalPrice}}</th>
                 </tr>
-            </tbody>       
+            </tbody>        --}}
         </table>
     </div>
 </div>
