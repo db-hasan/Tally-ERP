@@ -37,8 +37,7 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Opening</th>
-                    <th scope="col">Collection</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Balance</th>
                 </tr>
             </thead>
