@@ -38,6 +38,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Customer</th>
                     <th scope="col">Sales</th>
                     <th scope="col">Collection</th>
                     <th scope="col">Balance</th>
