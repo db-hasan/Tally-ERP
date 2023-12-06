@@ -44,14 +44,6 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="{{ route('customer.index') }}">
-                        <span class="icon">
-                            <i class="fa-solid fa-user-group fa-lg"></i>
-                        </span>
-                        <span class="title">Customer</span>
-                    </a>
-                </li>
-                <li class="">
                     <a href="{{ route('sales.index') }}">
                         <span class="icon">
                             <i class="fa-solid fa-cart-arrow-down fa-lg"></i>

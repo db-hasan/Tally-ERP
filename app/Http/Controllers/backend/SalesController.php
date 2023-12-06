@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customar;
+use App\Models\Customer;
 use App\Models\Product;
 use App\Models\Sales;
 use App\Models\S_order;
@@ -22,6 +23,7 @@ class SalesController extends Controller
     }
 
     public function create(){
+        $indexData['indexCustomer']= Customer::all();
         $indexData['indexProduct']= Product::all();
         return view('backend/sales/create', $indexData);
     }
@@ -52,11 +54,11 @@ class SalesController extends Controller
             $customar->save();
 
             $sales = new Sales();
-            $sales->customar_id = $customar->customar_id;
+            $sales->customar_id = $request->customar_name;
             $sales->save();
 
             $collection = new Collection();
-            $collection->customar_id = $customar->customar_id;
+            $collection->customar_id = $sales->customar_id;
             $collection->payment = $request->payment;
             $collection->save();
 
@@ -65,7 +67,7 @@ class SalesController extends Controller
             foreach ($types as $index => $type) {
                 $sOrder = new S_order();
                 $sOrder->sales_id = $sales->sales_id;
-                $sOrder->customar_id = $customar->customar_id;
+                $sOrder->customar_id = $sales->customar_id;
                 $sOrder->product_id = $request->product_name[$index];
                 $sOrder->order_quantity = $request->order_quantity[$index];
                 $sOrder->save();

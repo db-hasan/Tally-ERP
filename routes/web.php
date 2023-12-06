@@ -41,16 +41,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('customer/index',[CustomerController::class,'index'])->name('customer.index');
-    Route::get('customer/insert',[CustomerController::class,'create'])->name('customer.create');
-    Route::post('customer/insert',[CustomerController::class,'store'])->name('customer.store');
-    Route::get('customer/update/{customer_id}',[CustomerController::class,'edit'])->name('customer.edit');
-    Route::post('customer/update/{customer_id}',[CustomerController::class,'update'])->name('customer.update');
-    Route::get('customer/show/{customer_id}',[CustomerController::class,'show'])->name('customer.show');
-    Route::get('customer/destroy/{customer_id}',[CustomerController::class,'destroy'])->name('customer.destroy');
-});
-
-Route::middleware('auth')->group(function () {
     Route::get('sales/index',[salesController::class,'index'])->name('sales.index');
     Route::get('sales/insert',[salesController::class,'create'])->name('sales.create');
     Route::post('sales/insert',[salesController::class,'store'])->name('sales.store');
