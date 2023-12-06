@@ -3,7 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SalesController;
-use App\Http\Controllers\backend\CustomerController;
 use App\Http\Controllers\backend\CollectionController;
 use App\Http\Controllers\backend\ReportController;
 use Illuminate\Support\Facades\Route;
