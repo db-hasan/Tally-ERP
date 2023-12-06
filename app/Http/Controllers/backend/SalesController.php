@@ -103,6 +103,13 @@ class SalesController extends Controller
         return view('backend/sales/invoice', compact('showData', 'indexOrder'));
     }
 
+    public function destroy($sales_id){
+        $destroyDatas = Sales::find($sales_id)->delete();
+        $destroyData = S_order::where('sales_id', $sales_id)->delete();
+        Session::flash('msg','Data delete successfully');
+        return redirect()->route('sales.index');
+    }
+
     // public function invice($purchase_id){
     //     // Fetch data from Purchases table along with related status and supplier
     //     $showData = sales::join('statuses', 'sales.sales_status', '=', 'statuses.id')
@@ -117,11 +124,8 @@ class SalesController extends Controller
     //     // $quantitySum = P_order::where('p_orders.sales_id', $purchase_id)->sum('p_product_quantity');
     //     return view('backend/sales/invoice', compact('showData', 'indexOrder'));
     // }
-
-    // public function destroy($sales_id){
-    //     $destroyDatas = sales::find($sales_id)->delete();
-    //     $destroyData = P_order::where('sales_id', $sales_id)->delete();
-    //     Session::flash('msg','Data delete successfully');
-    //     return redirect()->route('sales.index');
-    // }
 }
+
+   
+
+    
