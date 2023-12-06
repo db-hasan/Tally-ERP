@@ -61,6 +61,9 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('report/balance',[ReportController::class,'balance'])->name('report.balance');
+    Route::get('all/balance/invice/',[ReportController::class,'all_balance_invice'])->name('all_balance.invice');
+    Route::get('single/balance/invice/{sbi_id}',[ReportController::class,'single_balance_invice'])->name('single_balance.invice');
+
     Route::get('report/stock',[ReportController::class,'stock'])->name('report.stock');
     Route::get('report/sales',[ReportController::class,'sales'])->name('report.sales');
     Route::get('report/collection',[ReportController::class,'collection'])->name('report.collection');

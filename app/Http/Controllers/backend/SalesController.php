@@ -8,6 +8,7 @@ use App\Models\Customar;
 use App\Models\Product;
 use App\Models\Sales;
 use App\Models\S_order;
+use App\Models\Collection;
 use App\Models\Status;
 use Session;
 use DB;
@@ -15,7 +16,8 @@ use DB;
 class SalesController extends Controller
 {
     public function index() {
-        $indexSales = Sales::join('customars', 'sales.sales_id', '=', 'customars.customar_id')->get();
+        $indexSales = Sales::join('customars', 'sales.sales_id', '=', 'customars.customar_id')
+                            ->join('collections', 'sales.customar_id', '=', 'collections.customar_id')->get();
         return view('backend/sales/index', compact('indexSales'));
     }
 
@@ -51,8 +53,12 @@ class SalesController extends Controller
 
             $sales = new Sales();
             $sales->customar_id = $customar->customar_id;
-            $sales->payment = $request->payment;
             $sales->save();
+
+            $collection = new Collection();
+            $collection->customar_id = $customar->customar_id;
+            $collection->payment = $request->payment;
+            $collection->save();
 
             $types = $request->product_name;
 
@@ -79,6 +85,7 @@ class SalesController extends Controller
     public function invice($sales_id){
         // Fetch data from Purchases table along with related status and supplier
         $showData = sales::join('customars', 'sales.customar_id', '=', 'customars.customar_id')
+                            ->join('collections', 'sales.customar_id', '=', 'collections.customar_id')
                             ->where('sales.sales_id', $sales_id)
                             ->first();
 
@@ -92,6 +99,7 @@ class SalesController extends Controller
 
     public function destroy($sales_id){
         $destroyDatas = Sales::find($sales_id)->delete();
+        
         $destroyData = S_order::where('sales_id', $sales_id)->delete();
         Session::flash('msg','Data delete successfully');
         return redirect()->route('sales.index');

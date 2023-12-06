@@ -26,11 +26,11 @@
                 <div class="">{{$showData->customar_address}}</div>
             </div>
         </div>
-        <hr>
+        {{-- <hr>
         <div class="">
             <div class="">Sales ID: #{{$showData->sales_id}}</div>
             <div class="">{{ date('d M Y', $showData->created_at->timestamp) }}</div>
-        </div>
+        </div> --}}
         <hr>
         <!-- Display other product information as needed -->
         <table class="table">
@@ -43,6 +43,19 @@
                     <th scope="col">Balance</th>
                 </tr>
             </thead>
+
+            <tbody>
+                @foreach ($showDatas as $item)
+                <tr>
+                    <th scope="row">{{$loop->index+1}}</th>
+                    <td>{{$item->product_name}}</td>
+                    <td>{{$item->selling_price}}</td>
+                    {{-- <td>{{$quantity}}</td>
+                    <td>{{$total}}</td> --}}
+                </tr>
+                @endforeach
+                
+            </tbody>  
             
             {{-- <tbody>
                 <?php

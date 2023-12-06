@@ -21,16 +21,16 @@
                 <div class="">Behar hat, Shibgonj-Bogura</div>
             </div>
             <div class="text-end">
-                <div class="">{{$showData->customar_name}}</div>
-                <div class="">{{$showData->customar_phone}}</div>
-                <div class="">{{$showData->customar_address}}</div>
+                <div class=""></div>
+                <div class=""></div>
+                <div class=""></div>
             </div>
         </div>
         <hr>
-        <div class="">
+        {{-- <div class="">
             <div class="">Sales ID: #{{$showData->sales_id}}</div>
             <div class="">{{ date('d M Y', $showData->created_at->timestamp) }}</div>
-        </div>
+        </div> --}}
         <hr>
         <!-- Display other product information as needed -->
         <table class="table">
@@ -44,6 +44,17 @@
                     <th scope="col">Balance</th>
                 </tr>
             </thead>
+            <tbody>
+                @foreach ($showData as $item)
+                <tr>
+                    <th scope="row">{{$loop->index+1}}</th>
+                    <td>{{ date('d M Y', $item->created_at->timestamp) }}</td>
+                    <td>{{$item->customar_name}}</td>
+                    <td>{{$item->selling_price}}</td>
+                </tr>
+                @endforeach
+                
+            </tbody>
             
             {{-- <tbody>
                 <?php
