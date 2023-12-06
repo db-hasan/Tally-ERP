@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('customar_id');
             $table->string('customar_name',50)->nullable();
             $table->string('customar_phone',50)->nullable();
-            $table->string('customar_email',50)->nullable();
+            $table->string('customer_address',255)->nullable();
             $table->integer('customar_status')->default(1);
             $table->timestamps();
         });
