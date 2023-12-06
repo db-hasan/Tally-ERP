@@ -75,20 +75,7 @@ class SalesController extends Controller
             return back()->with('error','Ops! Data insert fail');
         }
     }
-
-    public function show($sales_id){
-        // Fetch data from Purchases table along with related status and supplier
-        $showData = sales::join('customars', 'sales.customar_id', '=', 'customars.customar_id')
-                            ->where('sales.sales_id', $sales_id)
-                            ->first();
-
-        // Fetch associated products for the given purchase
-        $indexOrder = S_order::join('products', 'S_orders.product_id', '=', 'products.product_id')
-                            ->where('S_orders.sales_id', $sales_id)
-                            ->get();
-
-        return view('backend/sales/show', compact('showData', 'indexOrder'));
-    }
+    
     public function invice($sales_id){
         // Fetch data from Purchases table along with related status and supplier
         $showData = sales::join('customars', 'sales.customar_id', '=', 'customars.customar_id')
@@ -118,10 +105,10 @@ class SalesController extends Controller
     //                         ->first();
 
     //     // Fetch associated products for the given purchase
-    //     $indexOrder = P_order::join('products', 'p_orders.product_id', '=', 'products.product_id')
+    //     $indexOrder = S_order::join('products', 'p_orders.product_id', '=', 'products.product_id')
     //                         ->where('p_orders.sales_id', $purchase_id)
     //                         ->get();
-    //     // $quantitySum = P_order::where('p_orders.sales_id', $purchase_id)->sum('p_product_quantity');
+    //     // $quantitySum = S_order::where('p_orders.sales_id', $purchase_id)->sum('p_product_quantity');
     //     return view('backend/sales/invoice', compact('showData', 'indexOrder'));
     // }
 }

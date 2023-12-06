@@ -70,6 +70,14 @@
                     <th class="text-start">{{$totalQuantity}}</th>
                     <th class="text-end">{{$totalPrice}}</th>
                 </tr>
+                <tr>
+                    <td class="text-end" colspan="4">Payment:</td>
+                    <td class="text-end">{{$showData->payment}}</td>
+                </tr>
+                <tr>
+                    <th class="text-end" colspan="4">Due Balance:</th>
+                    <th class="text-end">{{$totalPrice-$showData->payment}}</th>
+                </tr>
             </tbody>       
         </table>
     </div>

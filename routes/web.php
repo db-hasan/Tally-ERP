@@ -44,7 +44,6 @@ Route::middleware('auth')->group(function () {
     Route::get('sales/index',[salesController::class,'index'])->name('sales.index');
     Route::get('sales/insert',[salesController::class,'create'])->name('sales.create');
     Route::post('sales/insert',[salesController::class,'store'])->name('sales.store');
-    Route::get('sales/show/{sales_id}',[salesController::class,'show'])->name('sales.show');
     Route::get('sales/invice/{sales_id}',[salesController::class,'invice'])->name('sales.invice');
     Route::get('sales/destroy/{sales_id}',[salesController::class,'destroy'])->name('sales.destroy');
 });

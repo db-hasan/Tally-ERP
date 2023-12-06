@@ -36,7 +36,6 @@
                     <td>{{$item->payment}}</td> 
                     <td>{{ date('d M Y', $item->created_at->timestamp) }}</td> 
                     <td class="icons">
-                        <a href="{{ route('sales.show', $item->sales_id) }}" type="button"  class="btn view"><i class="fa-solid fa-eye"></i></a>
                         <a href="{{ route('sales.invice', $item->sales_id) }}" type="button"  class="btn"><i class="fa-solid fa-file-invoice" style="color: #e4740c;"></i></a>
                         <a href="{{ route('sales.destroy', $item->sales_id) }}" type="button"  class="btn delete" onclick="return confirm('Are you sure dalete')"><i class="fa-solid fa-trash"></i></a>
                 </tr>

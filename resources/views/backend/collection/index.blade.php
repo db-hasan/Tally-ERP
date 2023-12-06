@@ -28,7 +28,6 @@
                     <td>{{$itemcollection->payment}}</td>
                     <td>{{ date('d M Y', $itemcollection->created_at->timestamp) }}</td>  
                     <td class="icons">
-                        <a href="{{ route('collection.show', $itemcollection->collection_id) }}" type="button"  class="btn view"><i class="fa-solid fa-eye"></i></a>
                         <a href="{{ route('collection.edit', $itemcollection->collection_id) }}" type="button" class="btn edit"><i class="fa-solid fa-pen"></i></a>
                         <a href="{{ route('collection.destroy', $itemcollection->collection_id) }}" type="button"  class="btn delete" onclick="return confirm('Are you sure dalete')"><i class="fa-solid fa-trash"></i></a>
                     </td>

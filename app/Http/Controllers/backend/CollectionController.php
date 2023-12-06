@@ -64,12 +64,6 @@ class CollectionController extends Controller
         return redirect()->route('collection.index');
     }
 
-    public function show($collection_id=null){
-        $showData = Collection::join('customars', 'collections.customar_id', '=', 'customars.customar_id')
-                                ->find($collection_id);
-        return view('backend/collection/show', compact('showData'));
-    }
-
     public function destroy($collection_id=null){
         $destroyData = Collection::find($collection_id);
         $destroyData->delete();
