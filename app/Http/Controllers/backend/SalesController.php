@@ -16,8 +16,7 @@ use DB;
 class SalesController extends Controller
 {
     public function index() {
-        $indexSales = Sales::join('customars', 'sales.sales_id', '=', 'customars.customar_id')
-                            ->join('collections', 'sales.customar_id', '=', 'collections.customar_id')->get();
+        $indexSales = Sales::join('customars', 'sales.sales_id', '=', 'customars.customar_id')->get();
         return view('backend/sales/index', compact('indexSales'));
     }
 

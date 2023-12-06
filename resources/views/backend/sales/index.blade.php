@@ -20,8 +20,6 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Number</th>
-                    <th>Sales</th>
-                    <th>Payment</th>
                     <th>Date</th>
                     <th class="text-end">Action</th>
                 </tr>
@@ -32,8 +30,6 @@
                     <td>{{$item->sales_id}}</td> 
                     <td>{{$item->customar_name}}</td> 
                     <td>{{$item->customar_phone}}</td> 
-                    <td>0000</td> 
-                    <td>{{$item->payment}}</td> 
                     <td>{{ date('d M Y', $item->created_at->timestamp) }}</td> 
                     <td class="icons">
                         <a href="{{ route('sales.invice', $item->sales_id) }}" type="button"  class="btn"><i class="fa-solid fa-file-invoice" style="color: #e4740c;"></i></a>

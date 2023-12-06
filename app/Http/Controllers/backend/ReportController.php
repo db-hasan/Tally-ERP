@@ -28,11 +28,19 @@ class ReportController extends Controller
     }
 
     public function all_balance_invice() {
-        $showData =S_order::join('products', 's_orders.product_id', '=', 'products.product_id')
-                            ->join('customars', 's_orders.customar_id', '=', 'customars.customar_id')
-                            ->get();
+        $showData =Sales::join('customars', 'sales.customar_id', '=', 'customars.customar_id')
+                        ->join('s_orders', 'sales.sales_id', '=', 's_orders.sales_id')
+                        ->join('products', 's_orders.product_id', '=', 'products.product_id')
+                        ->join('collections', 'sales.customar_id', '=', 'collections.customar_id')
+                        ->get();
+
+        // $sOrder =S_order::join('customars', 's_orders.customar_id', '=', 'customars.customar_id')
+        //                 ->join('products', 's_orders.product_id', '=', 'products.product_id')
+        //                 ->get();
+    
         return view('backend/balancereport/all_invoice', compact('showData'));
     }
+
 
 
     public function sales() {

@@ -27,11 +27,6 @@
             </div>
         </div>
         <hr>
-        {{-- <div class="">
-            <div class="">Sales ID: #{{$showData->sales_id}}</div>
-            <div class="">{{ date('d M Y', $showData->created_at->timestamp) }}</div>
-        </div> --}}
-        <hr>
         <!-- Display other product information as needed -->
         <table class="table">
             <thead>
@@ -45,44 +40,37 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($showData as $item)
-                <tr>
-                    <th scope="row">{{$loop->index+1}}</th>
-                    <td>{{ date('d M Y', $item->created_at->timestamp) }}</td>
-                    <td>{{$item->customar_name}}</td>
-                    <td>{{$item->selling_price}}</td>
-                </tr>
-                @endforeach
-                
-            </tbody>
-            
-            {{-- <tbody>
                 <?php
-                    $totalQuantity = 0;
-                    $totalPrice = 0;
-                ?>
-                
-                @foreach ($indexOrder as $order)
+                    $totalSales = 0;
+                    $totalCollection = 0;
+                ?>  
+                @foreach ($showData as $order)
+
                 <?php
-                    $quantity=($order->order_quantity);
-                    $totalQuantity += $quantity; // Increment the total quantity
                     $total=($order->selling_price * $order->order_quantity);
-                    $totalPrice += $total; // Increment the total quantity
+                    $totalSales += $total; // Increment the total quantity
+                    $totalPayment = $order->payment;
+                    $totalCollection += $totalPayment; // Increment the total quantity
+                    $balance=($total-$order->payment);
                 ?>
+                
                 <tr>
                     <th scope="row">{{$loop->index+1}}</th>
-                    <td>{{$order->product_name}}</td>
-                    <td>{{$order->selling_price}}</td>
-                    <td>{{$quantity}}</td>
+                    <td>{{ date('d M Y', $order->created_at->timestamp) }}</td>
+                    <td>{{$order->customar_name}}</td>
                     <td>{{$total}}</td>
+                    <td>{{$totalPayment}}</td>
+                    <td>{{$balance}}</td>
                 </tr>
                 @endforeach
                 <tr >
                     <th class="text-end" colspan="3">Total:</th>
-                    <th class="text-start">{{$totalQuantity}}</th>
-                    <th class="text-end">{{$totalPrice}}</th>
+                    <th class="text-start">{{$totalSales}}</th>
+                    <th class="text-start">{{$totalCollection}}</th>
+                    <th class="text-end">{{$totalSales-$totalCollection}}</th>
                 </tr>
-            </tbody>        --}}
+                
+            </tbody>
         </table>
     </div>
 </div>
