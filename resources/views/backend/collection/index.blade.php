@@ -16,7 +16,7 @@
                     <th>Phone</th>
                     <th>Payment</th>
                     <th>Date</th>
-                    <th class="ps-5">Action</th>
+                    <th class="text-end">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +26,7 @@
                     <td>{{$itemcollection->customar_name}}</td> 
                     <td>{{$itemcollection->customar_phone}}</td> 
                     <td>{{$itemcollection->payment}}</td>
-                    <td>{{ date('d M Y', $item->created_at->timestamp) }}</td>  
+                    <td>{{ date('d M Y', $itemcollection->created_at->timestamp) }}</td>  
                     <td class="icons">
                         <a href="{{ route('collection.show', $itemcollection->collection_id) }}" type="button"  class="btn view"><i class="fa-solid fa-eye"></i></a>
                         <a href="{{ route('collection.edit', $itemcollection->collection_id) }}" type="button" class="btn edit"><i class="fa-solid fa-pen"></i></a>

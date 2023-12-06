@@ -46,19 +46,12 @@
           <div class="pt-3">
               <div class="row item mb-3">
                   <div class="col-4">
-                      {{-- <select class="form-select" aria-label="Default select example" name="product_name[]" required>
+                      <select class="form-select" aria-label="Default select example" name="product_name[]" required>
                           <option value="" selected>Select Product</option>
                           @foreach ($indexProduct as $itemProduct)
                           <option value="{{$itemProduct->product_id}}">{{$itemProduct->product_name}}</option>
                           @endforeach
-                      </select> --}}
-
-                      <select class="form-select" aria-label="Default select example" name="product_name[]" id="productSelect" required>
-                        <option value="" selected>Select Product</option>
-                        @foreach ($indexProduct as $itemProduct)
-                            <option value="{{$itemProduct->product_id}}" data-price="{{$itemProduct->selling_price}}">{{$itemProduct->product_name}}</option>
-                        @endforeach
-                    </select>
+                      </select>
                       @error('product_name')
                       <span class="text-danger">{{ $message }}</span>
                       @enderror

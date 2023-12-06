@@ -53,6 +53,8 @@ Route::middleware('auth')->group(function () {
     Route::get('collection/index',[CollectionController::class,'index'])->name('collection.index');
     Route::get('collection/insert',[CollectionController::class,'create'])->name('collection.create');
     Route::post('collection/insert',[CollectionController::class,'store'])->name('collection.store');
+    Route::get('collection/update/{collection_id}',[CollectionController::class,'edit'])->name('collection.edit');
+    Route::post('collection/update/{collection_id}',[CollectionController::class,'update'])->name('collection.update');
     Route::get('collection/show/{collection_id}',[CollectionController::class,'show'])->name('collection.show');
     Route::get('collection/invice/{collection_id}',[CollectionController::class,'invice'])->name('collection.invice');
     Route::get('collection/destroy/{collection_id}',[CollectionController::class,'destroy'])->name('collection.destroy');
