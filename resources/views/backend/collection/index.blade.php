@@ -12,6 +12,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Customer ID</th>
                     <th>Customer</th>
                     <th>Phone</th>
                     <th>Payment</th>
@@ -23,6 +24,7 @@
                 @foreach ($indexcollection as $itemcollection)
                 <tr>
                     <td>{{$itemcollection->collection_id}}</td>  
+                    <td>{{$itemcollection->customar_id}}</td>  
                     <td>{{$itemcollection->customar_name}}</td> 
                     <td>{{$itemcollection->customar_phone}}</td> 
                     <td>{{$itemcollection->payment}}</td>

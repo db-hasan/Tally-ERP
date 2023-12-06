@@ -22,6 +22,7 @@ class ReportController extends Controller
                             ->first();
 
         $showDatas =S_order::join('products', 's_orders.product_id', '=', 'products.product_id')
+                            ->join('collections', 's_orders.customar_id', '=', 'collections.customar_id')
                             ->where('s_orders.sales_id', $sbi_id)
                             ->get();
         return view('backend/balancereport/single_invoice', compact('showData'), compact('showDatas'));

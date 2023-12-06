@@ -26,18 +26,17 @@
                 <div class="">{{$showData->customar_address}}</div>
             </div>
         </div>
-        {{-- <hr>
+        <hr>
         <div class="">
-            <div class="">Sales ID: #{{$showData->sales_id}}</div>
-            <div class="">{{ date('d M Y', $showData->created_at->timestamp) }}</div>
-        </div> --}}
+            <div class="">Customar ID: #{{$showData->customar_id}}</div>
+        </div>
         <hr>
         <!-- Display other product information as needed -->
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Sales</th>
                     <th scope="col">Collection</th>
                     <th scope="col">Balance</th>
@@ -45,15 +44,27 @@
             </thead>
 
             <tbody>
+                <?php
+                    $totalSales = 0;
+                    $totalCollection = 0;
+                ?>
                 @foreach ($showDatas as $item)
-                <tr>
-                    <th scope="row">{{$loop->index+1}}</th>
-                    <td>{{$item->product_name}}</td>
-                    <td>{{$item->selling_price}}</td>
-                    {{-- <td>{{$quantity}}</td>
-                    <td>{{$total}}</td> --}}
-                </tr>
+                <?php
+                    $sales = ($item->selling_price * $item->order_quantity);
+                    $totalSales += $sales; // Increment the total quantity
+                    $collection = $item->payment;
+                    $totalCollection += $collection;
+                    $balance=($totalSales-$collection);
+                ?>
+                
                 @endforeach
+                <tr>
+                    <td>{{$showData->customar_id}}</td>
+                    <td>{{$showData->customar_name}}</td>
+                    <td>{{$totalSales}}</td>
+                    <td>{{$collection}}</td>
+                    <td>{{$balance}}</td>
+                </tr>
                 
             </tbody>  
             

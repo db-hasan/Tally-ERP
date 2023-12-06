@@ -32,7 +32,6 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Date</th>
                     <th scope="col">Customer</th>
                     <th scope="col">Sales</th>
                     <th scope="col">Collection</th>
@@ -56,7 +55,6 @@
                 
                 <tr>
                     <th scope="row">{{$loop->index+1}}</th>
-                    <td>{{ date('d M Y', $order->created_at->timestamp) }}</td>
                     <td>{{$order->customar_name}}</td>
                     <td>{{$total}}</td>
                     <td>{{$totalPayment}}</td>
@@ -64,7 +62,7 @@
                 </tr>
                 @endforeach
                 <tr >
-                    <th class="text-end" colspan="3">Total:</th>
+                    <th class="text-end" colspan="2">Total:</th>
                     <th class="text-start">{{$totalSales}}</th>
                     <th class="text-start">{{$totalCollection}}</th>
                     <th class="text-end">{{$totalSales-$totalCollection}}</th>
