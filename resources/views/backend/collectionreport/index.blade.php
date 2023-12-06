@@ -15,7 +15,6 @@
                 <label for="inputState" class="form-label">All Customer</label>
                     <select id="inputState" class="form-select">
                     <option selected>All Customer</option>
-                    <option>...</option>
                     </select>
             </div>
             <div class="row g-3">
