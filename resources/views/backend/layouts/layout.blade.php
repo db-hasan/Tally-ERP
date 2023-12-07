@@ -140,7 +140,7 @@
     <div class="main">
         <div class="header d-flex fixed-top">
             <div class="logo text-center">
-                <h3><a href="#">HelpsxIT</a></h3>
+                <h3><a href="{{ route('dashboard') }}">HelpsxIT</a></h3>
             </div>
             <div class="toggle">
                 <i class="fa-solid fa-bars"></i>

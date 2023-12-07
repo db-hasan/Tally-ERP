@@ -5,7 +5,7 @@
 @section('content')
 <div class="px-5">
     <div class="text-end">
-        <a href="{{ route('sales.index') }}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i> View Data</a>
+        <a href="{{ route('report.stock') }}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i> View Data</a>
 
         <a href="#" class="btn btn-sm btn-dark" id="printBtn" onclick="printInvoice()">
             <i class="fa-solid fa-file-invoice" style="color: #fff;"></i> Print Invoice
