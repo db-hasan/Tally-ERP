@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SalesController;
 use App\Http\Controllers\backend\CollectionController;
 use App\Http\Controllers\backend\ReportController;
+use App\Http\Controllers\backend\UserController;
 use Illuminate\Support\Facades\Route;
 
 // frontend route
@@ -22,6 +23,9 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user',[UserController::class,'index'])->name('user');
 });
 
 Route::middleware('auth')->group(function () {

@@ -116,7 +116,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('user') }}">
                         <span class="icon">
                             <i class="fa-solid fa-users fa-lg"></i>
                         </span>
