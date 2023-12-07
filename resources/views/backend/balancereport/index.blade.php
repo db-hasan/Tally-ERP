@@ -34,19 +34,16 @@
         </div>
 
         <div class="col ">
-            <form action="" method="post">
+            <form action="{{route('single_balance.invice')}}" method="get">
+                @csrf
                 <div class="row g-1 py-3">
                     <label for="inputState" class="form-label">Single Customer</label>
-                        {{-- <select id="inputState" class="form-select">
-                        <option selected>Select Customer</option>
+                        <select id="inputState" class="form-select" name="customer">
+                        <option value="1" selected>Select Customer</option>
                         @foreach ($indexCustomar as $item)
                         <option value="{{$item->customar_id}}">{{$item->customar_name}}</option>
                         @endforeach
-                        </select> --}}
-                        @foreach ($indexCustomar as $item)
-                        <a href="{{ route('single_balance.invice', $item->customar_id) }}" class="nav-link">{{$item->customar_name}}</a>
-                        @endforeach
-
+                        </select>
                 </div>
                 <div class="row g-3">
                     <div class="col pb-3">

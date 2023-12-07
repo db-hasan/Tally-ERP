@@ -40,32 +40,29 @@
             </thead>
             <tbody>
                 <?php
-                    $totalSales = 0;
-                    $totalCollection = 0;
-                ?>  
-                @foreach ($showData as $order)
-
-                <?php
-                    $total=($order->selling_price * $order->order_quantity);
-                    $totalSales += $total; // Increment the total quantity
-                    $totalPayment = $order->payment;
-                    $totalCollection += $totalPayment; // Increment the total quantity
-                    $balance=($total-$order->payment);
+                    $grandTotalSales = 0;
+                    $grandTtotalCollection = 0;
                 ?>
-                
+
+               
+                @foreach ($customers as $customer)
+                <?php
+                    $grandTotalSales += $customer->totalSales;
+                    $grandTtotalCollection += $customer->totalCollection;
+                ?>      
                 <tr>
                     <th scope="row">{{$loop->index+1}}</th>
-                    <td>{{$order->customar_name}}</td>
-                    <td>{{$total}}</td>
-                    <td>{{$totalPayment}}</td>
-                    <td>{{$balance}}</td>
+                    <td>{{$customer->customar_name}}</td>
+                    <td>{{$customer->totalSales}}</td>
+                    <td>{{$customer->totalCollection}}</td>
+                    <td>{{$customer->totalSales - $customer->totalCollection}}</td>
                 </tr>
                 @endforeach
                 <tr >
                     <th class="text-end" colspan="2">Total:</th>
-                    <th class="text-start">{{$totalSales}}</th>
-                    <th class="text-start">{{$totalCollection}}</th>
-                    <th class="text-end">{{$totalSales-$totalCollection}}</th>
+                    <th class="text-start">{{$grandTotalSales}}</th>
+                    <th class="text-start">{{$grandTtotalCollection}}</th>
+                    <th class="text-end">{{$grandTotalSales-$grandTtotalCollection}}</th>
                 </tr>
                 
             </tbody>
