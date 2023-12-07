@@ -72,7 +72,7 @@
                         <span class="icon">
                             <i class="fa-solid fa-chart-column fa-lg"></i>
                         </span>
-                        <span class="title">Stock Report</span>
+                        <span class="title">StockReport(Inprogress)</span>
                     </a>
                 </li>
                 <li class="">
@@ -80,7 +80,7 @@
                         <span class="icon">
                             <i class="fa-solid fa-chart-column fa-lg"></i>
                         </span>
-                        <span class="title">Sales Report</span>
+                        <span class="title">SalesReport(Inprogress)</span>
                     </a>
                 </li>
                 <li class="">
@@ -88,7 +88,7 @@
                         <span class="icon">
                             <i class="fa-solid fa-chart-column fa-lg"></i>
                         </span>
-                        <span class="title">Collection Report</span>
+                        <span class="title">CollectionReport(Inprogress)</span>
                     </a>
                 </li>
                 <li class="">
