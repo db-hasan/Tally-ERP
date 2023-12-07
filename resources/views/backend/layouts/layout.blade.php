@@ -124,7 +124,11 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="{{ route('dashboard') }}">
+                    <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a href="route('logout')"
+                    onclick="event.preventDefault();
+                    this.closest('form').submit();">
                         <span class="icon">
                             <i class="fa-solid fa-right-from-bracket fa-lg"></i>
                         </span>
