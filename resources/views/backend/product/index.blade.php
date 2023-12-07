@@ -5,7 +5,7 @@
 
 <div class="">
     <div class="text-end">
-        <a href="{{ route('product.create') }}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i> Add Data</a>
+        <a href="{{ route('product.index') }}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i> Add Data</a>
     </div>
     <hr>
     <div class="custom-scrollbar-table">

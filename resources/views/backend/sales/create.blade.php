@@ -57,7 +57,7 @@
                       @enderror
                   </div>
                     <div class="col-2">
-                         <h5 class="pt-1" id="price" price="200">200</h5>
+                         <h5 class="pt-1" id="price" price="1000">1000</h5>
                          {{-- <input type="number" class="form-control" id="price" value="200"> --}}
                     </div>
 
