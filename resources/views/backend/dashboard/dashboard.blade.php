@@ -4,30 +4,48 @@
 <div class='row'>
             <div class='col-md-3 p-2'>
                 <div class='card p-3 text-light bg-info bg-gradient'>
-                    <p><strong>Sales Order</strong></p>
-                    <p><i class='fa-solid fa-cart-shopping fa-2xl'></i> 1011001</p>
-                    <span>Sales Price</span>
+                    <p><strong>Sales</strong></p>
+                    <?php
+                            $totalSales= 0;
+                        ?>
+                    @foreach ($indexsOrder as $order)
+                        <?php
+                            $total=($order->selling_price * $order->order_quantity);
+                            $totalSales += $total;
+                        ?>
+                    @endforeach
+                    <p><i class='fa-solid fa-cart-shopping fa-2xl'></i> {{$totalSales}}</p>
+                    <span>Sales Amount</span>
                 </div>
             </div>
             <div class='col-md-3 p-2'>
                 <div class='card p-3 text-light bg-success bg-opacity-75'>
-                    <p><strong>Profit</strong></p>
-                    <p><i class='fa-solid fa-money-check-dollar fa-2xl'></i> 1011001</p>
-                    <span>Profit Amount</span>
+                    <?php
+                            $collection= 0;
+                        ?>
+                    @foreach ($indexCollection as $item)
+                        <?php
+                            $collections=$item->payment;
+                            $collection += $collections; // Increment the total quantity
+                        ?>
+                    @endforeach
+                    <p><strong>Collection</strong></p>
+                    <p><i class='fa-solid fa-money-check-dollar fa-2xl'></i> <strong>{{$collection}}</strong></p>
+                    <span>Collection Amount</span>
                 </div>
             </div>
             <div class='col-md-3 p-2'>
                 <div class='card p-3 text-light bg-warning bg-opacity-75'>
-                    <p><strong>Expenses</strong></p>
-                    <p><i class='fa-solid fa-cart-flatbed-suitcase fa-2xl'></i> 1011001</p>
-                    <span>Expenses Cost</span>
+                    <p><strong>Profit</strong></p>
+                    <p><i class='fa-solid fa-cart-flatbed-suitcase fa-2xl'></i> <strong>{{$totalSales-$collection}}</strong></p>
+                    <span>Profit Amount</span>
                 </div>
             </div>
             <div class='col-md-3 p-2'>
                 <div class='card p-3 text-light bg-danger bg-opacity-75'>
-                    <p><strong>Gross Profit</strong></p>
-                    <p><i class='fa-solid fa-industry fa-2xl'></i> 1011001</p>
-                    <span>Profit Balance</span>
+                    <p><strong>Customer</strong></p>
+                    <p><i class='fa-solid fa-industry fa-2xl'></i> {{$indexWordlist}}</p>
+                    <span>Total Customer</span>
                 </div>
             </div>
         </div>
@@ -39,6 +57,7 @@
                 </div>
             </div>
         </div>
+                    
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

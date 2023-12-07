@@ -58,6 +58,7 @@
                   </div>
                     <div class="col-2">
                          <h5 class="pt-1" id="price" price="200">200</h5>
+                         {{-- <input type="number" class="form-control" id="price" value="200"> --}}
                     </div>
 
                   <div class="col-2">
@@ -161,6 +162,60 @@ function updateTotals() {
     $('#grandTotal').text(grandTotal);
 }
 </script>
+
+{{-- <script>
+   $(document).ready(function () {
+
+    $(".container").on("click", ".add-row", function () {
+        var newRow = $(".item").first().clone().find("input").val("").end().insertAfter($(this).closest(".item"));
+        newRow.find("#total").text("0");
+        attachQuantityChangeListener(newRow);
+    });
+
+    $(".container").on("click", ".remove-row", function () {
+        if ($(".item").length > 1) {
+            $(this).closest(".item").remove();
+        }
+    });
+
+    attachQuantityChangeListener($(".item"));
+
+    $(".container").on("change", ".item #qty", function () {
+        updateTotals();
+    });
+
+});
+
+function attachQuantityChangeListener(element) {
+    element.find("#qty").change(function () {
+        var id = $(this).closest(".item").find('#price').val();
+        var items = $(this).val();
+        if (isNaN(items) || items < 0) {
+            alert("Can't input minus (-)")
+            $(this).val(0); // Set quantity to 0 if negative or NaN
+            items = 0;
+        }
+        var total = id * items;
+        $(this).closest(".item").find('#total').text(total);
+        updateTotals();
+    });
+}
+
+function updateTotals() {
+    var grandTotal = 0;
+
+    $(".item").each(function () {
+        var price = parseFloat($(this).find('#price').val());
+        var quantity = parseFloat($(this).find("#qty").val());
+        var itemTotal = price * quantity;
+        if (!isNaN(itemTotal)) {
+            grandTotal += itemTotal;
+        }
+    });
+
+    $('#grandTotal').text(grandTotal);
+}
+</script> --}}
 
 
 @endsection

@@ -103,21 +103,6 @@ class SalesController extends Controller
         Session::flash('msg','Data delete successfully');
         return redirect()->route('sales.index');
     }
-
-    // public function invice($purchase_id){
-    //     // Fetch data from Purchases table along with related status and supplier
-    //     $showData = sales::join('statuses', 'sales.sales_status', '=', 'statuses.id')
-    //                         ->join('suppliers', 'sales.suppliers_id', '=', 'suppliers.supplier_id')
-    //                         ->where('sales.sales_id', $purchase_id)
-    //                         ->first();
-
-    //     // Fetch associated products for the given purchase
-    //     $indexOrder = S_order::join('products', 'p_orders.product_id', '=', 'products.product_id')
-    //                         ->where('p_orders.sales_id', $purchase_id)
-    //                         ->get();
-    //     // $quantitySum = S_order::where('p_orders.sales_id', $purchase_id)->sum('p_product_quantity');
-    //     return view('backend/sales/invoice', compact('showData', 'indexOrder'));
-    // }
 }
 
    
