@@ -1,7 +1,7 @@
 @extends('backend/layouts/layout')
 
 @section('content')
-<div class='row'>
+        <div class='row'>
             <div class='col-md-3 p-2'>
                 <div class='card p-3 text-light bg-info bg-gradient'>
                     <p><strong>Sales</strong></p>
