@@ -22,8 +22,8 @@ class CollectionController extends Controller
     }
     public function store(Request $request){
         $rules = [
-            'customar_name' => 'required | max:50',
-            'payment' => 'required | max:50',
+            'customar_name' => 'required|string|max:50',
+            'payment' => 'required|max:50',
         ];
         $v_msg=[
             'customar_name.required'=> 'Select customar name',

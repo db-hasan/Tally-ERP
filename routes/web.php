@@ -72,6 +72,18 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+// Route::put('update', [])
+// Route::delet('update', [])
+
+//get 
+// create/inser - proset 
+//put - update
+//delete - delete 
+
+// post
+// @csrf
+// @method('DELET')
+
 
 
 

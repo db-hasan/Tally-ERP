@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $indexData['indexCustomar']= Customar::groupBy('customar_id')->get(); 
         $indexData['indexWordlist']= count($indexData['indexCustomar']);   
         $indexData['indexCollection']= Collection::all(); 
-        $indexData['indexsOrder']= S_order::join('products', 'S_orders.product_id', '=', 'products.product_id')->get();
+        $indexData['indexsOrder']= S_order::join('products', 's_orders.product_id', '=', 'products.product_id')->get();
         return view('backend/dashboard/dashboard', $indexData);
     }
 }
