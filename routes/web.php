@@ -9,11 +9,6 @@ use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\UserController;
 use Illuminate\Support\Facades\Route;
 
-// frontend route
-// Route::get('/', function () {
-//     return view('frontend/home/home');
-// });
-
 
 // backend route
 
