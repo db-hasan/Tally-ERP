@@ -89,8 +89,8 @@ class SalesController extends Controller
                             ->first();
 
         // Fetch associated products for the given purchase
-        $indexOrder = S_order::join('products', 'S_orders.product_id', '=', 'products.product_id')
-                            ->where('S_orders.sales_id', $sales_id)
+        $indexOrder = S_order::join('products', 's_orders.product_id', '=', 'products.product_id')
+                            ->where('s_orders.sales_id', $sales_id)
                             ->get();
 
         return view('backend/sales/invoice', compact('showData', 'indexOrder'));
