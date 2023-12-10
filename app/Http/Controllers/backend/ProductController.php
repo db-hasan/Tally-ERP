@@ -11,11 +11,6 @@ use Session;
 
 class ProductController extends Controller
 {
-    // public function index() {
-    //     $indexData['indexproduct']= Product::join('statuses', 'products.product_status', '=', 'statuses.id')->get();
-    //     $indexData['indexCollection']= Stock::all(); 
-    //     return view('backend/product/index', $indexData);
-    // }
     public function index() {
         $indexproduct = Product::join('statuses', 'products.product_status', '=', 'statuses.id')->get();
         return view('backend/product/index', compact('indexproduct'));
