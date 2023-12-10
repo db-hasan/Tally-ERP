@@ -35,6 +35,11 @@ class StockController extends Controller
         $data->product_id= $request->product_name;
         $data->stock_quantity= $request->stock_quantity;
         $data->save();
+
+        $stock= Product::where('product_id', $request->product_name)->first();
+        $stock->product_quantity=$stock->product_quantity + $request->stock_quantity;;
+        $stock->save();
+        
         Session::flash('msg','Data submit successfully');
         return redirect()->route('stock.index');
     }

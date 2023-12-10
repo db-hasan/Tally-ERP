@@ -5,11 +5,17 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Stock;
 use App\Models\Status;
 use Session;
 
 class ProductController extends Controller
 {
+    // public function index() {
+    //     $indexData['indexproduct']= Product::join('statuses', 'products.product_status', '=', 'statuses.id')->get();
+    //     $indexData['indexCollection']= Stock::all(); 
+    //     return view('backend/product/index', $indexData);
+    // }
     public function index() {
         $indexproduct = Product::join('statuses', 'products.product_status', '=', 'statuses.id')->get();
         return view('backend/product/index', compact('indexproduct'));
