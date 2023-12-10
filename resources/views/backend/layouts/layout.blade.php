@@ -44,6 +44,14 @@
                     </a>
                 </li>
                 <li class="">
+                    <a href="{{ route('stock.index') }}">
+                        <span class="icon">
+                            <i class="fa-solid fa-layer-group fa-lg"></i>
+                        </span>
+                        <span class="title">Stock</span>
+                    </a>
+                </li>
+                <li class="">
                     <a href="{{ route('sales.index') }}">
                         <span class="icon">
                             <i class="fa-solid fa-cart-arrow-down fa-lg"></i>

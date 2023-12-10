@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\backend\StockController;
 use App\Http\Controllers\backend\SalesController;
 use App\Http\Controllers\backend\CollectionController;
 use App\Http\Controllers\backend\ReportController;
@@ -38,6 +39,17 @@ Route::middleware('auth')->group(function () {
     Route::post('product/update/{product_id}',[ProductController::class,'update'])->name('product.update');
     Route::get('product/show/{product_id}',[ProductController::class,'show'])->name('product.show');
     Route::get('product/destroy/{product_id}',[ProductController::class,'destroy'])->name('product.destroy');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('stock/index',[StockController::class,'index'])->name('stock.index');
+    Route::get('stock/insert',[StockController::class,'create'])->name('stock.create');
+    Route::post('stock/insert',[StockController::class,'store'])->name('stock.store');
+    Route::get('stock/update/{stock_id}',[StockController::class,'edit'])->name('stock.edit');
+    Route::post('stock/update/{stock_id}',[StockController::class,'update'])->name('stock.update');
+    Route::get('stock/show/{stock_id}',[StockController::class,'show'])->name('stock.show');
+    Route::get('stock/invice/{stock_id}',[StockController::class,'invice'])->name('stock.invice');
+    Route::get('stock/destroy/{stock_id}',[StockController::class,'destroy'])->name('stock.destroy');
 });
 
 Route::middleware('auth')->group(function () {
