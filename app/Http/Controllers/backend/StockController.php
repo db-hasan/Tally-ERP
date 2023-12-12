@@ -72,6 +72,9 @@ class StockController extends Controller
     public function destroy($stock_id=null){
         $destroyData = Stock::find($stock_id);
         $destroyData->delete();
+        $stock= Product::where('product_id', $destroyData->product_id)->first();
+        $stock->product_quantity=$stock->product_quantity - $destroyData->stock_quantity;
+        $stock->save();
         Session::flash('msg','Data delete successfully');
         return redirect()->route('stock.index');
     }
