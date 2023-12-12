@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2023 at 10:29 AM
+-- Generation Time: Dec 12, 2023 at 06:42 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -40,10 +40,11 @@ CREATE TABLE `collections` (
 --
 
 INSERT INTO `collections` (`collection_id`, `customar_id`, `payment`, `created_at`, `updated_at`) VALUES
-(1, '1', '1000', '2023-12-07 07:21:42', '2023-12-07 07:21:42'),
-(2, '2', '5000', '2023-12-07 07:22:54', '2023-12-07 07:22:54'),
-(3, '3', '1010', '2023-12-07 07:23:25', '2023-12-07 07:23:25'),
-(4, '4', '13000', '2023-12-07 07:24:32', '2023-12-07 07:24:32');
+(1, '1', '8000', '2023-12-12 17:20:31', '2023-12-12 17:20:31'),
+(2, '2', '1000', '2023-12-12 17:21:46', '2023-12-12 17:21:46'),
+(3, '3', '1500', '2023-12-12 17:22:49', '2023-12-12 17:22:49'),
+(4, '2', '500', '2023-12-12 17:31:38', '2023-12-12 17:31:38'),
+(5, '3', '1600', '2023-12-12 17:32:01', '2023-12-12 17:32:01');
 
 -- --------------------------------------------------------
 
@@ -66,10 +67,9 @@ CREATE TABLE `customars` (
 --
 
 INSERT INTO `customars` (`customar_id`, `customar_name`, `customar_phone`, `customar_address`, `customar_status`, `created_at`, `updated_at`) VALUES
-(1, 'Ali Hasan', '+8801723629080', 'Behar hat, Shibgonj-Bogura', 1, '2023-12-07 07:21:42', '2023-12-07 07:21:42'),
-(2, 'Rakib', '+8801723629080', 'Behar hat, Shibgonj-Bogura', 1, '2023-12-07 07:22:54', '2023-12-07 07:22:54'),
-(3, 'Miraj', '+8801723629080', 'Behar hat, Shibgonj-Bogura', 1, '2023-12-07 07:23:25', '2023-12-07 07:23:25'),
-(4, 'Tanvir', '+8801723629080', 'Behar hat, Shibgonj-Bogura', 1, '2023-12-07 07:24:32', '2023-12-07 07:24:32');
+(1, 'Ali Hasan', '+8801723629080', 'Behar hat, Shibgonj-Bogura', 1, '2023-12-12 17:20:31', '2023-12-12 17:20:31'),
+(2, 'Mim Hasan', '+8801723629080', 'Behar hat, Shibgonj-Bogura', 1, '2023-12-12 17:21:46', '2023-12-12 17:21:46'),
+(3, 'Bristy Rahman', '+8801723629080', 'Behar hat, Shibgonj-Bogura', 1, '2023-12-12 17:22:49', '2023-12-12 17:22:49');
 
 -- --------------------------------------------------------
 
@@ -113,7 +113,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2023_12_02_203731_create_customars_table', 1),
 (8, '2023_12_02_204115_create_sales_table', 1),
 (10, '2023_12_03_042351_create_statuses_table', 2),
-(11, '2023_12_04_033650_create_s_orders_table', 3);
+(11, '2023_12_04_033650_create_s_orders_table', 3),
+(12, '2023_12_10_095811_create_stocks_table', 4);
 
 -- --------------------------------------------------------
 
@@ -173,11 +174,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `category_name`, `brand_name`, `product_name`, `product_des`, `product_sku`, `manufacturing_cost`, `selling_price`, `product_quantity`, `product_img`, `product_status`, `created_at`, `updated_at`) VALUES
-(1, 'Electronics', 'Apple', 'Apple Watch', 'Apple Watch', '54QWA5', '800', '1000', '10', '1701933294.png', 1, '2023-12-07 07:14:55', '2023-12-07 07:14:55'),
-(2, 'Electronics', 'Acer', 'Asus Monitor', 'Monitor 22 Inch', '54QWA6', '900', '1000', '10', '1701933460.png', 1, '2023-12-07 07:17:40', '2023-12-07 07:17:40'),
-(3, 'Electronics', 'Lenovo', 'Laptop', 'Lenovo Laptop', '54QWA7', '750', '1000', '10', '1701933549.png', 1, '2023-12-07 07:19:09', '2023-12-07 07:19:09'),
-(4, 'Electronics', 'Canon', 'New Camrea', 'Canon Camrea', '54QWA8', '650', '1000', '10', '1701933611.webp', 1, '2023-12-07 07:20:11', '2023-12-07 07:20:11'),
-(5, 'Electronics', 'Casio', 'Calculator', 'Calculator Casio', '54QWA9', '500', '1000', '10', '1701933667.png', 1, '2023-12-07 07:21:07', '2023-12-07 07:21:07');
+(1, 'Electronics', 'Apple', 'Apple Watch', 'Apple Watch', '54QWA5', '800', '1000', '10', '1701933294.png', 1, '2023-12-07 07:14:55', '2023-12-12 17:20:31'),
+(2, 'Electronics', 'Acer', 'Asus Monitor', 'Monitor 22 Inch', '54QWA6', '900', '1000', '6', '1701933460.png', 1, '2023-12-07 07:17:40', '2023-12-12 17:22:49'),
+(3, 'Electronics', 'Lenovo', 'Laptop', 'Lenovo Laptop', '54QWA7', '750', '1000', '8', '1701933549.png', 1, '2023-12-07 07:19:09', '2023-12-12 17:22:49'),
+(4, 'Electronics', 'Canon', 'New Camrea', 'Canon Camrea', '54QWA8', '650', '1000', '9', '1701933611.webp', 1, '2023-12-07 07:20:11', '2023-12-12 17:21:46'),
+(5, 'Electronics', 'Casio', 'Calculator', 'Calculator Casio', '54QWA9', '500', '1000', '8', '1701933667.png', 1, '2023-12-07 07:21:07', '2023-12-12 17:22:49');
 
 -- --------------------------------------------------------
 
@@ -197,10 +198,9 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`sales_id`, `customar_id`, `created_at`, `updated_at`) VALUES
-(1, '1', '2023-12-07 07:21:42', '2023-12-07 07:21:42'),
-(2, '2', '2023-12-07 07:22:54', '2023-12-07 07:22:54'),
-(3, '3', '2023-12-07 07:23:25', '2023-12-07 07:23:25'),
-(4, '4', '2023-12-07 07:24:32', '2023-12-07 07:24:32');
+(1, '1', '2023-12-12 17:20:31', '2023-12-12 17:20:31'),
+(2, '2', '2023-12-12 17:21:46', '2023-12-12 17:21:46'),
+(3, '3', '2023-12-12 17:22:49', '2023-12-12 17:22:49');
 
 -- --------------------------------------------------------
 
@@ -226,6 +226,32 @@ INSERT INTO `statuses` (`id`, `status_name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `stocks`
+--
+
+CREATE TABLE `stocks` (
+  `stock_id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` varchar(50) DEFAULT NULL,
+  `stock_quantity` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `stocks`
+--
+
+INSERT INTO `stocks` (`stock_id`, `product_id`, `stock_quantity`, `created_at`, `updated_at`) VALUES
+(1, '1', '10', '2023-12-12 17:17:55', '2023-12-12 17:17:55'),
+(2, '1', '5', '2023-12-12 17:18:09', '2023-12-12 17:18:09'),
+(3, '2', '10', '2023-12-12 17:18:27', '2023-12-12 17:18:27'),
+(4, '3', '10', '2023-12-12 17:18:47', '2023-12-12 17:18:47'),
+(5, '4', '10', '2023-12-12 17:19:03', '2023-12-12 17:19:03'),
+(6, '5', '10', '2023-12-12 17:19:22', '2023-12-12 17:19:22');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `s_orders`
 --
 
@@ -244,17 +270,14 @@ CREATE TABLE `s_orders` (
 --
 
 INSERT INTO `s_orders` (`s_order_id`, `sales_id`, `product_id`, `customar_id`, `order_quantity`, `created_at`, `updated_at`) VALUES
-(1, '1', '1', '1', '1', '2023-12-07 07:21:42', '2023-12-07 07:21:42'),
-(2, '1', '2', '1', '1', '2023-12-07 07:21:42', '2023-12-07 07:21:42'),
-(3, '2', '3', '2', '2', '2023-12-07 07:22:54', '2023-12-07 07:22:54'),
-(4, '2', '4', '2', '3', '2023-12-07 07:22:54', '2023-12-07 07:22:54'),
-(5, '2', '2', '2', '5', '2023-12-07 07:22:54', '2023-12-07 07:22:54'),
-(6, '3', '3', '3', '1', '2023-12-07 07:23:25', '2023-12-07 07:23:25'),
-(7, '4', '4', '4', '2', '2023-12-07 07:24:32', '2023-12-07 07:24:32'),
-(8, '4', '2', '4', '3', '2023-12-07 07:24:32', '2023-12-07 07:24:32'),
-(9, '4', '1', '4', '4', '2023-12-07 07:24:32', '2023-12-07 07:24:32'),
-(10, '4', '3', '4', '1', '2023-12-07 07:24:32', '2023-12-07 07:24:32'),
-(11, '4', '5', '4', '2', '2023-12-07 07:24:32', '2023-12-07 07:24:32');
+(1, '1', '1', '1', '5', '2023-12-12 17:20:31', '2023-12-12 17:20:31'),
+(2, '1', '2', '1', '3', '2023-12-12 17:20:31', '2023-12-12 17:20:31'),
+(3, '1', '3', '1', '1', '2023-12-12 17:20:31', '2023-12-12 17:20:31'),
+(4, '2', '5', '2', '1', '2023-12-12 17:21:46', '2023-12-12 17:21:46'),
+(5, '2', '4', '2', '1', '2023-12-12 17:21:46', '2023-12-12 17:21:46'),
+(6, '3', '3', '3', '1', '2023-12-12 17:22:49', '2023-12-12 17:22:49'),
+(7, '3', '5', '3', '1', '2023-12-12 17:22:49', '2023-12-12 17:22:49'),
+(8, '3', '2', '3', '1', '2023-12-12 17:22:49', '2023-12-12 17:22:49');
 
 -- --------------------------------------------------------
 
@@ -342,6 +365,12 @@ ALTER TABLE `statuses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `stocks`
+--
+ALTER TABLE `stocks`
+  ADD PRIMARY KEY (`stock_id`);
+
+--
 -- Indexes for table `s_orders`
 --
 ALTER TABLE `s_orders`
@@ -362,13 +391,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `collections`
 --
 ALTER TABLE `collections`
-  MODIFY `collection_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `collection_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `customars`
 --
 ALTER TABLE `customars`
-  MODIFY `customar_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `customar_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -380,7 +409,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -398,7 +427,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sales_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sales_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `statuses`
@@ -407,10 +436,16 @@ ALTER TABLE `statuses`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `stocks`
+--
+ALTER TABLE `stocks`
+  MODIFY `stock_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `s_orders`
 --
 ALTER TABLE `s_orders`
-  MODIFY `s_order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `s_order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`

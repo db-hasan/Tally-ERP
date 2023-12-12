@@ -102,7 +102,7 @@ class SalesController extends Controller
     public function destroy($sales_id){
         $destroyDatas = Sales::find($sales_id)->delete();    
         $destroyData = S_order::where('sales_id', $sales_id)->delete();
-
+    // Sales Delete korle stock table theke sale QTY + hoina
         // $stock= Product::where('product_id', $destroyData->product_id)->first();
         // $stock->product_quantity=$stock->product_quantity + $destroyData->order_quantity;
         // $stock->save();
