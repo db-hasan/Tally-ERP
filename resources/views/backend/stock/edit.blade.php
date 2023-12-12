@@ -11,7 +11,7 @@
       @csrf
 
       <div class="col-4">
-        <label for="product_name" class="form-label">Customar Name<span class="text-danger">*</span></label>
+        <label for="product_name" class="form-label">Product Name<span class="text-danger">*</span></label>
         <select class="form-select" aria-label="Default select example" name="product_name">
           @foreach ($indexproduct as $item)
           <option value="{{$item->product_id}}">{{$item->product_name}}</option>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="col-md-4 pb-3">
-        <label for="stock_quantity" class="form-label">Payment<span class="text-danger">*</span></label>
+        <label for="stock_quantity" class="form-label">Stock<span class="text-danger">*</span></label>
         <input type="text" class="form-control" id="stock_quantity" name="stock_quantity" value="{{$indexData->stock_quantity}}">
         @error('stock_quantity')
             <span class="text-danger">{{ $message }}</span>

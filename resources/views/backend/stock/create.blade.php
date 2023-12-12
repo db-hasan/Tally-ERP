@@ -11,9 +11,9 @@
       @csrf
 
       <div class="col-4">
-        <label for="product_name" class="form-label">Customar Name<span class="text-danger">*</span></label>
+        <label for="product_name" class="form-label">Product Name<span class="text-danger">*</span></label>
         <select class="form-select" aria-label="Default select example" name="product_name">
-          <option value="" selected>Select customar</option>
+          <option value="" selected>Select product</option>
           @foreach ($indexproduct as $item)
           <option value="{{$item->product_id}}">{{$item->product_name}}</option>
           @endforeach

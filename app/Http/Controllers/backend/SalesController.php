@@ -68,6 +68,9 @@ class SalesController extends Controller
                 $sOrder->product_id = $request->product_name[$index];
                 $sOrder->order_quantity = $request->order_quantity[$index];
                 $sOrder->save();
+                $stock= Product::where('product_id', $sOrder->product_id)->first();
+                $stock->product_quantity=$stock->product_quantity - $sOrder->order_quantity;
+                $stock->save();
             }
 
             DB::commit();
@@ -97,9 +100,12 @@ class SalesController extends Controller
     }
 
     public function destroy($sales_id){
-        $destroyDatas = Sales::find($sales_id)->delete();
-        
+        $destroyDatas = Sales::find($sales_id)->delete();    
         $destroyData = S_order::where('sales_id', $sales_id)->delete();
+
+        // $stock= Product::where('product_id', $destroyData->product_id)->first();
+        // $stock->product_quantity=$stock->product_quantity + $destroyData->order_quantity;
+        // $stock->save();
         Session::flash('msg','Data delete successfully');
         return redirect()->route('sales.index');
     }
